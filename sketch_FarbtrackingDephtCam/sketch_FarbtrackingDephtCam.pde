@@ -53,7 +53,11 @@ void draw() {
         closestPoint.y = y;
        }
 
-        if(rawDepth > 100 && rawDepth < 750) {
+
+    }
+  }
+  
+          if(rawDepth > 100 && rawDepth < 750) {
           fill(trackColor);
           noStroke();
           ellipse(closestPoint.x,closestPoint.y,50,50);
@@ -62,8 +66,7 @@ void draw() {
         else {
           pixels[loc] = img.pixels[loc]; 
         }
-    }
-  }
+  
   updatePixels(); 
 
   //image(img, 0, 0, kinect2.depthWidth, kinect2.depthHeight);  //draw image with position 0,0
