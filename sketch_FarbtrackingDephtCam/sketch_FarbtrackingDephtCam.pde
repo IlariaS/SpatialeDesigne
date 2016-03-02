@@ -2,7 +2,7 @@ import org.openkinect.processing.*;
 
 Kinect2 kinect2; //initialize Kinect
 
-
+color trackColor;   //variable to store tracked color
 
 void setup() {
   size(512, 424);  //canvas size 
@@ -10,6 +10,10 @@ void setup() {
   kinect2.initDepth();         //get DephtCam Information
 
   kinect2.initDevice(); // Start all data
+  
+  colorMode(HSB,255);                   //search for hue and not for rgb
+  color trackColor = color(255,0,0);      //define color to be tracked
+  smooth();
 }
 
 void draw() {

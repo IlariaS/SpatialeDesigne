@@ -15,7 +15,7 @@ void setup()
   video = new Capture(this,width,height,15);
   video.start();
 
-  trackColor = color(255,0,0);
+  trackColor = color(255,255,255);
   smooth();
 }
 
@@ -28,7 +28,7 @@ void draw()
   video.loadPixels();
   image(video,0,0);
 
-  float worldRecord = 500; 
+  float worldRecord = 0; 
 
   int closestX = 0;
   int closestY = 0;
@@ -67,8 +67,8 @@ void draw()
 
 }
 
-void mousePressed() 
-{
-  int loc = mouseX + mouseY*video.width;
-  trackColor = video.pixels[loc];
-}
+//void mousePressed() 
+//{
+//  int loc = mouseX + mouseY*video.width;
+//  trackColor = video.pixels[loc];
+//}
