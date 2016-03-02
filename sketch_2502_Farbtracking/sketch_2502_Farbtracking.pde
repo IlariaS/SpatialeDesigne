@@ -28,7 +28,7 @@ void draw()
   video.loadPixels();
   image(video,0,0);
 
-  float worldRecord = 0; 
+  float worldRecord = 500; 
 
   int closestX = 0;
   int closestY = 0;
