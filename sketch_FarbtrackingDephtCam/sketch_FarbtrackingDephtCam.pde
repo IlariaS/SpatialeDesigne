@@ -8,11 +8,17 @@ void setup() {
   size(512, 424);  //canvas size 
   kinect2 = new Kinect2(this);  //initialize Kinect
   kinect2.initDepth();         //get DephtCam Information
-
+  kinect2.initVideo();        //second cam starts
   kinect2.initDevice(); // Start all data
   
-  colorMode(HSB,255);                   //search for hue and not for rgb
-  color trackColor = color(255,0,0);      //define color to be tracked
+  
+  color c = color(255, 0, 0);  // Define color 'c'
+  float trackColor = red(c);  // Get red in 'c'
+  println(trackColor);
+  
+  
+  //colorMode(HSB,255);                   //search for hue and not for rgb
+  //color trackColor = color(255,0,0);      //define color to be tracked
   smooth();
 }
 
@@ -23,15 +29,14 @@ void draw() {
   
   PImage img = kinect2.getDepthImage();                       //store DephtImage in img variable
   int[] depthMap = kinect2.getRawDepth();   //create array to store img info 
-  
+  int[] 
    loadPixels();
    
-   float worldRecord = 500;
    
    int closestX = 0;
-    int closestY = 0;
+   int closestY = 0;
   
-    PVector closestPoint = new PVector();
+   PVector closestPoint = new PVector();
    
    for(int x=0; x<kinect2.depthWidth; x++)                   //create loop to check single pixels
   {
@@ -46,17 +51,6 @@ void draw() {
           PVector trackColorVec = new PVector(red(trackColor),green(trackColor),blue(trackColor));
           float diff = currColorVec.dist(trackColorVec);
           
-        if (diff < worldRecord) 
-        {
-        worldRecord = diff;
-        closestPoint.x = x;
-        closestPoint.y = y;
-       }
-
-
-    }
-  }
-  
           if(rawDepth > 100 && rawDepth < 750) {
           fill(trackColor);
           noStroke();
@@ -66,6 +60,9 @@ void draw() {
         else {
           pixels[loc] = img.pixels[loc]; 
         }
+    }
+  }
+        println("hallo");
   
   updatePixels(); 
 
