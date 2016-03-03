@@ -29,7 +29,9 @@ void draw() {
   
   PImage img = kinect2.getDepthImage();                       //store DephtImage in img variable
   int[] depthMap = kinect2.getRawDepth();   //create array to store img info 
-  int[] 
+  
+  PImage colorIMG = kinect2.getVideoImage();
+  int[] colorMap = colorIMG;
    loadPixels();
    
    
@@ -43,9 +45,10 @@ void draw() {
     for(int y=0; y<kinect2.depthHeight; y++)
     {
          int loc = x+y*kinect2.depthWidth;                    //create loc variable to store current pixel location
-
+          
+         
          int rawDepth = depthMap[loc];                        //read depthValue of each array location
-         color currentColor = depthMap[loc];
+         color currentColor = colorMap[loc];
 
           PVector currColorVec = new PVector(red(currentColor),green(currentColor),blue(currentColor));
           PVector trackColorVec = new PVector(red(trackColor),green(trackColor),blue(trackColor));
