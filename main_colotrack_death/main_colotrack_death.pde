@@ -1,19 +1,19 @@
-colorCracker crackThat;
+ColorCracker crackThat;
 
 import org.openkinect.processing.*;
-import peasy.*;
-
-Kinect2 kinect2;
-PeasyCam cam;
+//import peasy.*;
 
 
-void setup()
-{
-  
+
+
+void setup(){
+  size(600,600);
+  colorMode(HSB, 255);
+  crackThat = new ColorCracker(this);
 }
 
 
-void draw()
-{
-  
+void draw(){
+  background(0);
+  crackThat.display();
 }
